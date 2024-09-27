@@ -1,42 +1,43 @@
 html {
     background: rgb(179, 155, 254);
-    background: linear-gradient(150deg, rgba(179, 155, 254, 1) 0%, rgba(140, 0, 161, 1) 100%);
-  
-  }
-  
-  html,
-  body {
+    background: linear-gradient(
+        150deg,
+        rgba(179, 155, 254, 1) 0%,
+        rgba(140, 0, 161, 1) 100%
+    );
+}
+
+html,
+body {
     padding: 0;
     margin: 0;
     width: 100%;
     height: 100%;
-  
-  }
-  
-  * {
+}
+
+* {
     font-family: 'Roboto', sans-serif;
-  }
-  
-  .container {
+}
+
+.container {
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
-  }
-  
-  
-  
-  .wrapper {
+}
+
+.wrapper {
     /* width: 90%;
     max-width: 500px;
     margin: 0 auto; */
-  }
-  
-  .cal {}
-  
-  .cal .cal-header {
+}
+
+.cal {
+}
+
+.cal .cal-header {
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -44,44 +45,44 @@ html {
     padding: 20px;
     height: 60px;
     word-break: break-all;
-  }
-  
-  .cal-header {
+}
+
+.cal-header {
     text-align: right;
-    background-color: rgba(0, 0, 0, .62);
+    background-color: rgba(0, 0, 0, 0.62);
     color: white;
-  }
-  
-  .cal-body {
+}
+
+.cal-body {
     margin-top: -4px;
     background-color: white;
-  }
-  
-  .cal-header .cal-previous-preview {
-    opacity: .7;
+}
+
+.cal-header .cal-previous-preview {
+    opacity: 0.7;
     font-size: 14px;
     margin-bottom: 10px;
-  }
-  
-  .cal-header .cal-current-preview {
+}
+
+.cal-header .cal-current-preview {
     font-size: 25px;
-  }
-  
-  .cal .cal-body .cal-space {
+}
+
+.cal .cal-body .cal-space {
     width: 100%;
     display: flex;
-  }
-  
-  .cal-space {
+}
+
+.cal-space {
     display: flex;
     width: 100%;
     flex: 4;
     flex-shrink: 0;
     gap: 4px;
-    margin-top: 4px
-  }
-  
-  .cal-space>button {
+    margin-top: 4px;
+}
+
+.cal-space > button {
     width: 100%;
     display: flex;
     flex: 1 calc(25% - 4px);
@@ -94,42 +95,42 @@ html {
     background-color: rgb(250 241 255);
     font-size: 20px;
     font-weight: bold;
-  }
-  
-  .cal-space .space-2 {
+}
+
+.cal-space .space-2 {
     flex: 2 calc(50% - 4px);
-  }
-  
-  @media (min-width: 601px) {
-    .cal-space>button:hover {
-      background-color: white;
+}
+
+@media (min-width: 601px) {
+    .cal-space > button:hover {
+        background-color: white;
     }
-  }
-  
-  @media (max-width: 600px) {
+}
+
+@media (max-width: 600px) {
     .wrapper {
-      width: 100%;
-      height: 100%;
-      max-width: 100%;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
     }
-  
+
     .cal {
-      height: 100%;
+        height: 100%;
     }
-  
+
     .cal .cal-header {
-      height: 20%;
-      padding: 10px;
+        height: 20%;
+        padding: 10px;
     }
-  
+
     .cal .cal-body {
-      height: calc(100% - 20% - 10px + 4px);
-      display: flex;
-      flex-flow: column;
+        height: calc(100% - 20% - 10px + 4px);
+        display: flex;
+        flex-flow: column;
     }
-  
-    .cal .cal-space>button {
-      width: auto;
-      height: auto;
+
+    .cal .cal-space > button {
+        width: auto;
+        height: auto;
     }
-  } 
+}
