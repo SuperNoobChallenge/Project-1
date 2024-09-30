@@ -1,4 +1,4 @@
-class Calulcator {
+class Calculator {
     $previousPreview
     $currentPreview
     previousOperation = ''
@@ -77,7 +77,7 @@ const $operations = document.querySelectorAll('[data-btn-operation]')
 const $previousPreview = document.querySelector('[data-previous-preview]')
 const $currentPreview = document.querySelector('[data-current-preview]')
 
-const calc = new Calulcator($previousPreview, $currentPreview)
+const calc = new Calculator($previousPreview, $currentPreview)
 
 $numbers.forEach(($number) => {
     $number.addEventListener('click', (e) => {
