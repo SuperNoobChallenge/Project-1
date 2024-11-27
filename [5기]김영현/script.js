@@ -35,9 +35,13 @@ class Calculator {
                 +this.$previousPreview.textContent.split('')[0] *
                 +this.$currentPreview.textContent
         } else if (operation == '÷') {
-            result =
-                +this.$previousPreview.textContent.split('')[0] /
-                +this.$currentPreview.textContent
+            if (this.$currentPreview.textContent === '0') {
+                alert('0으로 나눌 수 없습니다')
+            } else {
+                result =
+                    +this.$previousPreview.textContent.split('')[0] /
+                    +this.$currentPreview.textContent
+            }
         }
         this.$currentPreview.textContent = ''
         this.$previousPreview.textContent = '' + result
