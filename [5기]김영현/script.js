@@ -14,6 +14,9 @@ class Calculator {
     }
 
     onPressNumber(number) {
+        if (number === '.' && this.$currentPreview.textContent.includes('.')) {
+            return
+        }
         this.$currentPreview.textContent += number
     }
     onPressOperation(operation) {
