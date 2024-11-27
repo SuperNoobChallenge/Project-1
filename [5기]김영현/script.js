@@ -3,10 +3,14 @@ class Calculator {
     $currentPreview
     previousOperation = ''
     currentOperation = ''
+    history = []
+    $historyList
 
     constructor($previousPreview, $currentPreview) {
         this.$previousPreview = $previousPreview
         this.$currentPreview = $currentPreview
+        this.history = []
+        this.$historyList = document.querySelector('[data-history-list]')
     }
 
     onPressNumber(number) {
@@ -21,30 +25,42 @@ class Calculator {
 
     onEqual() {
         const operation = this.previousOperation.trim()
-        let result = 0
-        if (operation == '+') {
-            result =
-                +this.$previousPreview.textContent.split('')[0] +
-                +this.$currentPreview.textContent
-        } else if (operation == '-') {
-            result =
-                +this.$previousPreview.textContent.split('')[0] -
-                +this.$currentPreview.textContent
-        } else if (operation == '*') {
-            result =
-                +this.$previousPreview.textContent.split('')[0] *
-                +this.$currentPreview.textContent
-        } else if (operation == '÷') {
-            if (this.$currentPreview.textContent === '0') {
-                alert('0으로 나눌 수 없습니다')
-            } else {
-                result =
-                    +this.$previousPreview.textContent.split('')[0] /
-                    +this.$currentPreview.textContent
-            }
+        const previousValue = parseFloat(
+            this.$previousPreview.textContent.split(' ')[0]
+        )
+        const currentValue = parseFloat(this.$currentPreview.textContent)
+
+        if (isNaN(previousValue) || isNaN(currentValue)) {
+            alert('올바른 숫자를 입력해주세요')
+            return
         }
+
+        let result = 0
+        switch (operation) {
+            case '+':
+                result = previousValue + currentValue
+                break
+            case '-':
+                result = previousValue - currentValue
+                break
+            case '*':
+                result = previousValue * currentValue
+                break
+            case '÷':
+                if (currentValue === 0) {
+                    alert('0으로 나눌 수 없습니다')
+                    return
+                }
+                result = previousValue / currentValue
+                break
+            default:
+                return
+        }
+
         this.$currentPreview.textContent = ''
         this.$previousPreview.textContent = '' + result
+        const calculation = `${previousValue} ${operation} ${currentValue}`
+        this.addToHistory(calculation, result)
     }
 
     onReset() {
@@ -57,6 +73,22 @@ class Calculator {
     onDelete() {
         this.$currentPreview.textContent =
             this.$currentPreview.textContent.slice(0, -1)
+    }
+
+    addToHistory(calculation, result) {
+        this.history.push(`${calculation} = ${result}`)
+
+        // DOM에 히스토리 추가
+        const historyItem = document.createElement('div')
+        historyItem.textContent = `${calculation} = ${result}`
+        this.$historyList.insertBefore(
+            historyItem,
+            this.$historyList.firstChild
+        )
+    }
+
+    showHistory() {
+        return this.history.join('\n')
     }
 }
 

@@ -29,9 +29,8 @@ body {
 }
 
 .wrapper {
-    /* width: 90%;
-    max-width: 500px;
-    margin: 0 auto; */
+    display: flex;
+    gap: 20px;
 }
 
 .cal {
@@ -132,5 +131,39 @@ body {
     .cal .cal-space > button {
         width: auto;
         height: auto;
+    }
+}
+
+.history-panel {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 200px;
+    max-height: 400px;
+}
+
+.history-panel h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.history-list {
+    overflow-y: auto;
+    max-height: 350px;
+}
+
+.history-list div {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    color: #666;
+}
+
+@media (max-width: 800px) {
+    .wrapper {
+        flex-direction: column;
+    }
+    
+    .history-panel {
+        max-height: 200px;
     }
 }
