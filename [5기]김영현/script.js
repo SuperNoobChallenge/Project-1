@@ -34,7 +34,7 @@ class Calculator {
             result =
                 +this.$previousPreview.textContent.split('')[0] *
                 +this.$currentPreview.textContent
-        } else if (operation == '/') {
+        } else if (operation == '÷') {
             result =
                 +this.$previousPreview.textContent.split('')[0] /
                 +this.$currentPreview.textContent
